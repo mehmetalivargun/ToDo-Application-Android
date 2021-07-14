@@ -8,5 +8,7 @@ class TodoRepository
 @Inject constructor(private val dao: TodoDao){
 
     suspend fun  insertTodo(todo: Todo)=dao.insertTodo(todo)
+    suspend fun deleteTodo(todo:Todo)=dao.deleteTodo(todo)
+    suspend fun findTodo(id:String)=dao.findTodo(id)
     fun getAllTodos()=dao.getAllTodos()
 }

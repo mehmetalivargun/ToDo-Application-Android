@@ -18,5 +18,10 @@ class TodoViewModel
 
     }
 
+    fun deleteTodo(todo:Todo)=viewModelScope.launch {
+        todoRepository.deleteTodo(todo)
+    }
+
+
     val getAllToDos=todoRepository.getAllTodos().asLiveData()
 }
