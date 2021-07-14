@@ -8,8 +8,9 @@ import android.view.ViewGroup
 import androidx.navigation.findNavController
 import com.mehmetalivargun.todo.R
 import com.mehmetalivargun.todo.databinding.FragmentTodoListBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class TodoListFragment : Fragment(R.layout.fragment_todo_list) {
 
 

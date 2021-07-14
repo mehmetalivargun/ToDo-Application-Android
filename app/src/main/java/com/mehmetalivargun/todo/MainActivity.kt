@@ -8,11 +8,12 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.mehmetalivargun.todo.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 
 private lateinit var  binding: ActivityMainBinding
 private lateinit var  navController:NavController
 private lateinit var appBarConfiguration: AppBarConfiguration
-
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
