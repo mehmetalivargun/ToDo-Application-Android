@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:background="@color/grey"
     android:padding="16dp"
-    tools:context=".ui.TodoListFragment" >
+    tools:context=".ui.TodoListFragment">
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/todoList"
         android:layout_width="match_parent"
@@ -40,18 +41,17 @@
         android:id="@+id/fabAddToDo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="24dp"
+        android:scaleType="center"
+        app:backgroundTint="#5CA8E0"
         android:clickable="true"
-        android:src="@drawable/ic_add"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:src="@drawable/add"
+        app:fabCustomSize="82dp"
+        app:fabSize="auto"
+        app:tint="@android:color/white"
+        android:layout_margin="24dp"
+        app:layout_constraintBottom_toBottomOf="@+id/todoList"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.947"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.985" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

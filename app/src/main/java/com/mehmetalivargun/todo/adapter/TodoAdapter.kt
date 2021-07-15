@@ -1,5 +1,6 @@
 package com.mehmetalivargun.todo.adapter
 
+import android.graphics.Color
 import android.graphics.Paint
 import android.util.Log
 import android.view.LayoutInflater
@@ -7,6 +8,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.mehmetalivargun.todo.R
 import com.mehmetalivargun.todo.databinding.TodoLayoutAdapterBinding
 import com.mehmetalivargun.todo.model.Todo
 
@@ -34,29 +36,44 @@ class TodoAdapter :RecyclerView.Adapter<TodoAdapter.TodoViewHolder>(){
     }
 
     override fun onBindViewHolder(holder: TodoViewHolder, position: Int) {
-        Log.e("position",position.toString())
+
         val todo=differ.currentList[position]
         holder.binding.apply {
             tvTodo.text=todo.todoTitle
         }
 
+
+        holder.binding.cardView.setOnClickListener {
+
+            holder.binding.checkBox.apply {
+                this.isChecked = !isChecked
+                checkTodo(holder,isChecked)
+            }
+        }
+
         holder.binding.checkBox.apply {
             setOnClickListener {
-                holder.binding.apply {
-                    if (isChecked){
-                        tvTodo.paintFlags=tvTodo.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
-
-                    }else{
-                        tvTodo.paintFlags=tvTodo.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
-                    }
+               checkTodo(holder,isChecked)
                 }
             }
         }
-    }
+
 
     override fun getItemCount()=differ.currentList.size
 
+    private fun checkTodo(holder: TodoAdapter.TodoViewHolder,isChecked:Boolean) {
+        holder.binding.apply {
+            if (isChecked) {
+                tvTodo.paintFlags = tvTodo.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+                tvTodo.setTextColor(Color.parseColor("#FFB1B1B1"))
 
+
+            } else {
+                tvTodo.paintFlags = tvTodo.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
+                tvTodo.setTextColor(Color.parseColor("#000000"))
+            }
+        }
+    }
 
 
 }
